@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqy1jpagvw5t1"]
+
+[ext_resource type="Texture2D" uid="uid://7sa6wh8u6g85" path="res://Resources/tycho8.jpg" id="1_12p46"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kyd8q"]
+panorama = ExtResource("1_12p46")
+
+[sub_resource type="Sky" id="Sky_fosoy"]
+sky_material = SubResource("PanoramaSkyMaterial_kyd8q")
+
+[sub_resource type="Environment" id="Environment_tsilk"]
+background_mode = 2
+sky = SubResource("Sky_fosoy")
+
+[node name="GameScene" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tsilk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994969, 0.100188, 0, -0.100188, 0.994969, 0, 0, 0)
