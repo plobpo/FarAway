@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bndrloc4yn7q4"]
+
+[ext_resource type="PackedScene" uid="uid://dc737q87u2xhe" path="res://assets/units/Executioner.gltf" id="1_eb7by"]
+[ext_resource type="Script" path="res://Scenes/units/Executioner.cs" id="2_fk84c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0dxqr"]
+size = Vector3(3.50674, 1.3556, 8.08204)
+
+[node name="Executioner" instance=ExtResource("1_eb7by")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+gravity_scale = 0.0
+script = ExtResource("2_fk84c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.31751)
+shape = SubResource("BoxShape3D_0dxqr")

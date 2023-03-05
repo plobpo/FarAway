@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch524te050txl"]
+
+[ext_resource type="PackedScene" uid="uid://dftlp0fuv1mjb" path="res://Resources/UnitModels/Destroyer_Anna.gltf" id="1_gnsqj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_imwqs"]
+lightmap_size_hint = Vector2i(5, 88)
+top_radius = 0.1
+bottom_radius = 0.01
+height = 12.526
+radial_segments = 73
+rings = 20
+
+[sub_resource type="Gradient" id="Gradient_utw3w"]
+offsets = PackedFloat32Array(0.331126, 1)
+
+[sub_resource type="Gradient" id="Gradient_n3v12"]
+
+[node name="Destroyer_Anna" instance=ExtResource("1_gnsqj")]
+
+[node name="thruster-1" type="CPUParticles3D" parent="Anna-V" index="0"]
+transform = Transform3D(-0.0101925, -0.999947, 1.19203e-07, 0.999948, -0.0101925, 1.20424e-07, -1.19203e-07, 1.20424e-07, 0.999999, -59.1565, 11.8343, -2.62902)
+visibility_range_fade_mode = 1
+amount = 10
+lifetime = 0.03
+speed_scale = 3.0
+randomness = 1.0
+local_coords = true
+mesh = SubResource("CylinderMesh_imwqs")
+emission_shape = 1
+emission_sphere_radius = 2.5
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("Gradient_utw3w")
+color_initial_ramp = SubResource("Gradient_n3v12")
+
+[node name="thruster-4" type="CPUParticles3D" parent="Anna-V" index="1"]
+transform = Transform3D(-0.0101925, -0.999947, 1.19203e-07, 0.999947, -0.0101925, 1.20424e-07, -1.19203e-07, 1.20424e-07, 0.999999, -59.1565, 28.1475, 16.2958)
+gi_mode = 2
+visibility_range_fade_mode = 1
+amount = 10
+lifetime = 0.03
+speed_scale = 3.0
+randomness = 1.0
+local_coords = true
+mesh = SubResource("CylinderMesh_imwqs")
+emission_shape = 1
+emission_sphere_radius = 2.5
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("Gradient_utw3w")
+color_initial_ramp = SubResource("Gradient_n3v12")
+
+[node name="thruster-3" type="CPUParticles3D" parent="Anna-V" index="2"]
+transform = Transform3D(-0.0101925, -0.999947, 1.19203e-07, 0.999948, -0.0101925, 1.20424e-07, -1.19203e-07, 1.20424e-07, 0.999999, -59.1565, 11.8343, 15.6059)
+visibility_range_fade_mode = 1
+amount = 10
+lifetime = 0.03
+speed_scale = 3.0
+randomness = 1.0
+local_coords = true
+mesh = SubResource("CylinderMesh_imwqs")
+emission_shape = 1
+emission_sphere_radius = 2.5
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("Gradient_utw3w")
+color_initial_ramp = SubResource("Gradient_n3v12")
+
+[node name="thruster-2" type="CPUParticles3D" parent="Anna-V" index="3"]
+transform = Transform3D(-0.0101925, -0.999947, 1.19203e-07, 0.999948, -0.0101925, 1.20424e-07, -1.19203e-07, 1.20424e-07, 0.999999, -59.1565, 28.6909, -2.62902)
+visibility_range_fade_mode = 1
+amount = 10
+lifetime = 0.03
+speed_scale = 3.0
+randomness = 1.0
+local_coords = true
+mesh = SubResource("CylinderMesh_imwqs")
+emission_shape = 1
+emission_sphere_radius = 2.5
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("Gradient_utw3w")
+color_initial_ramp = SubResource("Gradient_n3v12")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://67de2ocpsp7m"]
+
+[ext_resource type="PackedScene" uid="uid://dleaioq5ll8ir" path="res://Resources/UnitModels/Cyclops civilian frigate.gltf" id="1_saa8m"]
+
+[node name="Hauler" instance=ExtResource("1_saa8m")]
