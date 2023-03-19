@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpqco5upcukro"]
+[gd_scene load_steps=6 format=3 uid="uid://cpqco5upcukro"]
 
 [ext_resource type="Texture2D" uid="uid://d16gunbmeijeg" path="res://Resources/astronomy-2773548.jpg" id="1_81yt3"]
+[ext_resource type="PackedScene" uid="uid://bndrloc4yn7q4" path="res://Scenes/units/executioner.tscn" id="2_ub3ph"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kyd8q"]
 panorama = ExtResource("1_81yt3")
@@ -19,4 +20,11 @@ sky_custom_fov = 77.7
 environment = SubResource("Environment_tsilk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.0657216, -0.0779135, -0.994792, 0.0118323, 0.996938, -0.0772999, 0.997768, -0.00669035, 0.0664423, 0, 0, 0)
+transform = Transform3D(0.999687, 0.0172627, 0.0181292, -0.0214079, 0.964916, 0.261686, -0.0129758, -0.261992, 0.964983, 5.14311, 6.61155, 17.2966)
+
+[node name="Executioner" parent="." instance=ExtResource("2_ub3ph")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83442, 0, 0.420549)
+mass = 0.1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.59228, 0.805732, 0, -0.805732, 0.59228, 4.68169, 6.38991, 7.68907)
