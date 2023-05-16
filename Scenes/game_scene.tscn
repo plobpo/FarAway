@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpqco5upcukro"]
+[gd_scene load_steps=8 format=3 uid="uid://cpqco5upcukro"]
 
 [ext_resource type="Texture2D" uid="uid://d16gunbmeijeg" path="res://Resources/astronomy-2773548.jpg" id="1_81yt3"]
-[ext_resource type="PackedScene" uid="uid://bndrloc4yn7q4" path="res://Scenes/units/executioner.tscn" id="2_ub3ph"]
+[ext_resource type="PackedScene" uid="uid://cmx8exsu4fci" path="res://Scenes/units/executioner.tscn" id="2_ub3ph"]
+[ext_resource type="Script" path="res://Scenes/TrackingCamera.cs" id="3_qm26d"]
+[ext_resource type="PackedScene" uid="uid://ch524te050txl" path="res://Scenes/units/destroyer.tscn" id="4_whoo5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kyd8q"]
 panorama = ExtResource("1_81yt3")
@@ -19,12 +21,20 @@ sky_custom_fov = 77.7
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tsilk")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999687, 0.0172627, 0.0181292, -0.0214079, 0.964916, 0.261686, -0.0129758, -0.261992, 0.964983, 5.14311, 6.61155, 17.2966)
-
 [node name="Executioner" parent="." instance=ExtResource("2_ub3ph")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.83442, 0, 0.420549)
-mass = 0.1
+mass = 0.01
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.59228, 0.805732, 0, -0.805732, 0.59228, 4.68169, 6.38991, 7.68907)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999403, -0.0345506, 0, 0.0345506, 0.999403, 4.86127, 3.27753, 11.4983)
+current = true
+script = ExtResource("3_qm26d")
+target_path = NodePath("../Executioner")
+Offset = 20.0
+Offset_As_Vector = Vector3(0, 5, -20)
+
+[node name="Destroyer_Anna" parent="." instance=ExtResource("4_whoo5")]
+transform = Transform3D(-2.25681, 0, 0.095516, 0, 2.171, 0, -0.252942, 0, -0.852218, -22.8375, 8.03996, -154.653)
