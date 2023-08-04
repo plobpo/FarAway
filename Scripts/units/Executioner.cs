@@ -1,9 +1,10 @@
 using Godot;
 using FarAway.Scripts.core.utils;
 
+namespace FarAway.Scripts.core.units;
 public partial class Executioner : RigidBody3D
 {
-	private readonly float _acceleration = 5.0f;
+	private readonly float _acceleration = 50.0f;
 	private float _pitchSpeed = 0.05f;
 	private float _rollSpeed = 5.0f;
 	private float _yawSpeed = 0.05f;
@@ -32,9 +33,8 @@ public partial class Executioner : RigidBody3D
 			_accelerateState = AccelerationStateEnum.FULLSTOP;
 			EmitFrontThrusters(false);
 			EmitRearThrusters(false);
-			
 		}
-		
+
 		if(Input.GetLastMouseVelocity() != Vector2.Zero)
 		{
 			HandleMouse(delta);
@@ -56,12 +56,12 @@ public partial class Executioner : RigidBody3D
 
 	private void HandleThrottleOrRoll(double delta)
 	{
-		if(Godot.Input.IsActionPressed("throttle_up"))
+		if(Input.IsActionPressed("throttle_up"))
 		{
 			_accelerateState = AccelerationStateEnum.FORWARD;
 			EmitRearThrusters(true);
 		} 
-		else if(Godot.Input.IsActionPressed("throttle_down"))
+		else if(Input.IsActionPressed("throttle_down"))
 		{
 			_accelerateState = AccelerationStateEnum.BACKWARD;
 			EmitFrontThrusters(true);
@@ -69,13 +69,11 @@ public partial class Executioner : RigidBody3D
 		
 		if(Input.IsActionPressed("roll_right"))
 		{
-			var calculatedZRotation = GetRotation().Z + (_rollSpeed * (float)delta );
-			_rotation.Z = calculatedZRotation; 			
+			_rotation.Z = GetRotation().Z + (_rollSpeed * (float)delta );
 
 		} else if (Input.IsActionPressed("roll_left"))
 		{
-			var calculatedZRotation = GetRotation().Z + (_rollSpeed * (float)delta * -1);
-			_rotation.Z = calculatedZRotation; 	
+			_rotation.Z = GetRotation().Z + (_rollSpeed * (float)delta * -1);
 		}
 	}
     public override void _PhysicsProcess(double delta)
@@ -96,7 +94,6 @@ public partial class Executioner : RigidBody3D
 			Transform3D translatedTransform = Transform.Translated(-center);
 			Transform3D rotatedTransform = translatedTransform.RotatedLocal(_rotation.Normalized(), Mathf.DegToRad(_rotation.Length()));
 			Transform = rotatedTransform.Translated(center);
-			
 		}
 
 		if(_accelerateState != AccelerationStateEnum.FULLSTOP)
@@ -154,4 +151,3 @@ public partial class Executioner : RigidBody3D
 		.Emitting = emitting;
 	}
 }
-
